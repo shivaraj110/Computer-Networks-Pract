@@ -82,10 +82,22 @@ printf("\n");
 binary_division(dataword,divisor,remainder);
 
 printf("\nThe remainder on reciever side is :\n");
-
+int error = 0;
 for(int i=0;i<16;i++){
+    if(remainder[i] == 1){
+            error = 1;
+            printf("error at %d th bit\n",i);
+            break;
+        }
     printf("%d\t",remainder[i]);
     }
+
+    if(!error){
+        printf("Data is valid and free of errors !");
+    }
+    else
+        printf("retry once again!");
+
 
 return 0;
 
