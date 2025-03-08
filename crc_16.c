@@ -13,7 +13,7 @@ void binary_division(int dividend[], int divisor[], int remainder[]) {
     }
     
     // Perform binary long division
-    for (int i = DIVISOR_SIZE; i <= DIVIDEND_SIZE; i++) {
+    for (int i = DIVISOR_SIZE; i < DIVIDEND_SIZE+1; i++) {
         if (temp[0] == 1) {
             // Perform XOR with divisor
             for (int j = 0; j < DIVISOR_SIZE; j++) {
@@ -32,7 +32,7 @@ void binary_division(int dividend[], int divisor[], int remainder[]) {
     
     // Copy the remainder
     for (int i = 0; i < REMAINDER_SIZE; i++) {
-        remainder[i] = temp[i];
+        remainder[i] = temp[i+1];
     }
 }
 
