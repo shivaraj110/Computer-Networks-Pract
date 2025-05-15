@@ -1,54 +1,50 @@
 #include <stdio.h>
-
 int main() {
-  unsigned int n;
-  int ch;
-  int count = 0;
-  int binarynum[32] = {0};
-  int i = 0;
+  unsigned int num;
+  int ch, count = 0, binaryRep[32] = {0}, i = 0, parityBit;
+  printf("Enter the codeword in decimal format: ");
+  scanf("%u", &num);
 
-  printf("Enter a number: ");
-  scanf("%u", &n);
-
-  // Convert to binary and store in array
-  unsigned int temp = n;
+  unsigned int temp = num;
   while (temp > 0) {
-    binarynum[i] = temp % 2;
-    temp = temp / 2;
+    binaryRep[i] = temp % 2;
+    temp /= 2;
     i++;
   }
 
-  printf("Binary representation is: ");
+  printf("the binary representation\n");
   for (int j = i - 1; j >= 0; j--) {
-    printf("%d", binarynum[j]);
+    printf("%d\t", binaryRep[j]);
   }
   printf("\n");
 
-  printf("Select parity type:\n1. Even\n2. Odd\nChoice: ");
+  printf("1 : even parity | 2 : odd parity\n");
+  printf("Enter your choice here : \t");
   scanf("%d", &ch);
+  printf("\n");
 
-  // Count number of 1s
   for (int j = 0; j < i; j++) {
-    if (binarynum[j] == 1)
+    if (binaryRep[j] == 1)
       count++;
   }
 
-  int parity_bit;
-  if (ch == 1) { // Even parity
-    parity_bit = (count % 2 == 0) ? 0 : 1;
-  } else if (ch == 2) { // Odd parity
-    parity_bit = (count % 2 == 0) ? 1 : 0;
-  } else {
-    printf("Invalid choice.\n");
-    return 1;
+  switch (ch) {
+  case 1:
+    // in case of even parity
+    parityBit = count % 2 == 0 ? 0 : 1;
+    break;
+  case 2:
+    // in case of even parity
+    parityBit = count % 2 == 0 ? 1 : 0;
+    break;
+  default:
+    printf("invalid choice :( exiting the program \n");
   }
+  printf("number of 1's :%d \n", count);
 
-  printf("Number of 1s: %d\n", count);
-  printf("Codeword with parity bit: ");
-  for (int j = i - 1; j >= 0; j--) {
-    printf("%d", binarynum[j]);
-  }
-  printf("%d\n", parity_bit);
-
+  printf("dataword along with the parityBit :\n");
+  for (int j = i - 1; j >= 0; j--)
+    printf("%d\t", binaryRep[j]);
+  printf("%d\n", parityBit);
   return 0;
 }
