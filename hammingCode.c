@@ -30,12 +30,12 @@ void decode(int encodedWord[7], int decodedWord[4]) {
     encodedWord[errPosition - 1] ^= 1;
     printf("error corrected! here is the correced dataword xD : \t");
     for (int i = 0; i < 7; i++) {
-      printf("%d\t\n", encodedWord[i]);
+      printf("%d\t", encodedWord[i]);
     }
   } else {
     printf("dataword has been decoded without any error\n");
     for (int i = 0; i < 7; i++) {
-      printf("%d\t\n", encodedWord[i]);
+      printf("%d\t", encodedWord[i]);
     }
   }
   decodedWord[0] = encodedWord[2];
@@ -55,7 +55,12 @@ int main() {
   encode(encodedWord, dataword);
   printf("\nEncoded dataword : \n");
   for (int i = 0; i < 7; i++) {
-    printf("%d\t\n", encodedWord[i]);
+    printf("%d\t", encodedWord[i]);
+  }
+
+  printf("Enter the received encoded dataword : \t");
+  for (int i = 0; i < 7; i++) {
+    scanf("%d", &encodedWord[i]);
   }
   decode(encodedWord, decodedWord);
   return 0;
