@@ -34,11 +34,12 @@ int main() {
     parityBit = count % 2 == 0 ? 0 : 1;
     break;
   case 2:
-    // in case of even parity
+    // in case of odd parity
     parityBit = count % 2 == 0 ? 1 : 0;
     break;
   default:
     printf("invalid choice :( exiting the program \n");
+    return 1;
   }
   printf("number of 1's :%d \n", count);
 
