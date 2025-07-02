@@ -20,7 +20,6 @@ void binary_division(int dividend[], int divisor[], int remainder[]) {
         temp[j] = temp[j] ^ divisor[j];
       }
     }
-
     // Shift left and bring down next bit
     if (i < DIVIDEND_SIZE) {
       for (int j = 0; j < DIVISOR_SIZE - 1; j++) {
@@ -49,6 +48,7 @@ int main() {
   for (int i = 0; i < 8; i++) {
     printf("%d\t", dataword[i]);
   }
+
   // filling remaining bits with 0
   for (int i = 8; i < 24; i++) {
     dataword[i] = 0;
@@ -67,6 +67,7 @@ int main() {
     printf("%d\t", remainder[i]);
   }
 
+  // swapping the stuffed zeros with the remainder
   for (int i = 0; i < 16; i++) {
     dataword[i + 8] = remainder[i];
   }
@@ -92,7 +93,7 @@ int main() {
   }
 
   if (!error) {
-    printf("\nData is valid and free of errors !");
+    printf("\nData is valid and free of errors \n");
   } else
     printf("retry once again!");
 

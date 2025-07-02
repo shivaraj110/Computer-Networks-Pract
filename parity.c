@@ -5,6 +5,7 @@ int main() {
   printf("Enter the codeword in decimal format: ");
   scanf("%u", &num);
 
+  // binary representation of the codeword
   unsigned int temp = num;
   while (temp > 0) {
     binaryRep[i] = temp % 2;
@@ -18,11 +19,13 @@ int main() {
   }
   printf("\n");
 
+  // ask for parity choice
   printf("1 : even parity | 2 : odd parity\n");
   printf("Enter your choice here : \t");
   scanf("%d", &ch);
   printf("\n");
 
+  // count the number of 1's in the binary representation
   for (int j = 0; j < i; j++) {
     if (binaryRep[j] == 1)
       count++;
