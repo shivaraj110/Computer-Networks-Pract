@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {
   }
   host = gethostbyname(argv[1]);
   if (host == NULL) {
-    herror("gethostbyname");
+    herror("gethostbyne");
     exit(1);
   }
-  printf("Hostname: %s\n", host->h_name);
+  printf("Hostname  : %s\n", host->h_name);
   addr_list = (struct in_addr **)host->h_addr_list;
   for (int i = 0; addr_list[i] != NULL; i++) {
-    printf("IP Address: %s\n", inet_ntoa(*addr_list[i]));
+    printf("IP Address  : %s\n", inet_ntoa(*addr_list[i]));
   }
   return 0;
 }
