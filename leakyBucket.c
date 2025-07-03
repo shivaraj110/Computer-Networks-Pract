@@ -21,7 +21,6 @@ int add_packets(LeakyBucket *bucket, int packets) {
   if (bucket->current_level + packets > bucket->capacity) {
     printf("Bucket overflow! Dropping %d packets\t current level : %d/%d\n",
            packets, bucket->current_level, bucket->capacity);
-    bucket->current_level = bucket->capacity;
     return -1; // Return -1 to indicate packet loss
   }
 
