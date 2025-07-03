@@ -56,7 +56,7 @@ int main() {
 
   printf("\nDataword after filling 0 till 24 bits\n");
 
-  for (int i = 0; i < 23; i++) {
+  for (int i = 0; i < 24; i++) {
     printf("%d\t", dataword[i]);
   }
   // performing division
