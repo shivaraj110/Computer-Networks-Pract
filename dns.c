@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   }
   host = gethostbyname(argv[1]);
   if (host == NULL) {
-    herror("gethostbyne");
+    herror("gethostbyname");
     exit(1);
   }
   printf("Hostname  : %s\n", host->h_name);
